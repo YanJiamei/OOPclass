@@ -1,3 +1,5 @@
+#include <string>
+#include <iostream>
 class Record{
 public:
 	void setRecord(int num, std::string str, int x, int y, int z);
@@ -18,7 +20,8 @@ void Record::setRecord(int num, std::string str, int x, int y, int z){
 	score3 = z;
 	no	   = num;
 	name   = str;
-	average= ( x + y + z ) / 3;
+	//type casting: int to float
+	average= float( x + y + z ) / 3;
 }
 
 void Record::printRecord() const{
@@ -27,15 +30,14 @@ void Record::printRecord() const{
 				<< score2 << "\t" << score3 << "\t" << average << std::endl;
 }
 
-#include <string>
-#include <iostream>
+
+
 #include <vector>
 using namespace std;
 
 int main(){
 	//ask records of students
-	cout << "Input 10 records of students. Each record consists
-	 of a name (w/o space), and scores for three courses (in integer, 1 to 5):"
+	cout << "Input 10 records of students. Each record consists of a name (w/o space), and scores for three courses (in integer, 1 to 5):"
 	 	<< endl;
 	//set parameters
 	string name = "";
@@ -80,8 +82,8 @@ int main(){
 		(*it).printRecord();
 	}
 	cout << "\taverage\t" << sum1/amount << "\t" << sum2/amount << "\t" << sum3/amount << endl
-		 << "\tmin\t" << sum1/amount << "\t" << sum2/amount << "\t" << sum3/amount << endl
-		 << "\tmax\t" << sum1/amount << "\t" << sum2/amount << "\t" << sum3/amount << endl;
+		 << "\tmin\t" << min1 << "\t" << min2 << "\t" << min3 << endl
+		 << "\tmax\t" << max1 << "\t" << max2 << "\t" << max3 << endl;
 
 	return 0;
 }
